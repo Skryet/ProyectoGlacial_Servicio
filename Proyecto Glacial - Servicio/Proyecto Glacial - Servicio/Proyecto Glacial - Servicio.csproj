@@ -12,6 +12,22 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>G:\rafa\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,9 +48,36 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>84369D6B6C3C818377283E474455E66C10439750</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Proyecto Glacial - Servicio_ClaveTemporal.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo_jpg.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +89,160 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Clases\consultas.cs" />
+    <Compile Include="Clases\NumeroLetra.cs" />
+    <Compile Include="Clases\metodosOptimizar.cs" />
+    <Compile Include="frm_menuSistema.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frm_menuSistema.Designer.cs">
+      <DependentUpon>frm_menuSistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="glacial_almacenDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>glacial_almacenDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="glacial_servicioDataSet.cs">
+      <DependentUpon>glacial_servicioDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="glacial_servicioDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>glacial_servicioDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenServicio.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrdenServicio.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioAgregar\frm_OrdenServicioAgregar01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioAgregar\frm_OrdenServicioAgregar01.Designer.cs">
+      <DependentUpon>frm_OrdenServicioAgregar01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioAgregar\frm_OrdenServicioAgregar02.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioAgregar\frm_OrdenServicioAgregar02.Designer.cs">
+      <DependentUpon>frm_OrdenServicioAgregar02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioAgregar\frm_OrdenServicioAgregar03.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioAgregar\frm_OrdenServicioAgregar03.Designer.cs">
+      <DependentUpon>frm_OrdenServicioAgregar03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioAgregar\frm_OrdenServicioAgregar04.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioAgregar\frm_OrdenServicioAgregar04.Designer.cs">
+      <DependentUpon>frm_OrdenServicioAgregar04.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioAgregar\frm_OrdenServicioBuscarArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioAgregar\frm_OrdenServicioBuscarArticulo.Designer.cs">
+      <DependentUpon>frm_OrdenServicioBuscarArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioAgregar\frm_OrdenServicioImprimir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioAgregar\frm_OrdenServicioImprimir.Designer.cs">
+      <DependentUpon>frm_OrdenServicioImprimir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioBuscar\frm_OrdenServicioBuscar00.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioBuscar\frm_OrdenServicioBuscar00.Designer.cs">
+      <DependentUpon>frm_OrdenServicioBuscar00.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioBuscar\frm_OrdenServicioBuscar01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioBuscar\frm_OrdenServicioBuscar01.Designer.cs">
+      <DependentUpon>frm_OrdenServicioBuscar01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioBuscar\frm_OrdenServicioBuscar02.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioBuscar\frm_OrdenServicioBuscar02.Designer.cs">
+      <DependentUpon>frm_OrdenServicioBuscar02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioBuscar\frm_OrdenServicioBuscar03.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioBuscar\frm_OrdenServicioBuscar03.Designer.cs">
+      <DependentUpon>frm_OrdenServicioBuscar03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioBuscar\frm_OrdenServicioBuscar04.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioBuscar\frm_OrdenServicioBuscar04.Designer.cs">
+      <DependentUpon>frm_OrdenServicioBuscar04.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioMenu\frm_ordenServicioMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdenServicio\OrdenServicioMenu\frm_ordenServicioMenu.Designer.cs">
+      <DependentUpon>frm_ordenServicioMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presupuesto\frm_Presupuesto_Agregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presupuesto\frm_Presupuesto_Agregar.Designer.cs">
+      <DependentUpon>frm_Presupuesto_Agregar.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frm_menuSistema.resx">
+      <DependentUpon>frm_menuSistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdenServicio.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>OrdenServicio.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdenServicio\OrdenServicioAgregar\frm_OrdenServicioAgregar01.resx">
+      <DependentUpon>frm_OrdenServicioAgregar01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdenServicio\OrdenServicioAgregar\frm_OrdenServicioAgregar02.resx">
+      <DependentUpon>frm_OrdenServicioAgregar02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdenServicio\OrdenServicioAgregar\frm_OrdenServicioAgregar03.resx">
+      <DependentUpon>frm_OrdenServicioAgregar03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdenServicio\OrdenServicioAgregar\frm_OrdenServicioAgregar04.resx">
+      <DependentUpon>frm_OrdenServicioAgregar04.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdenServicio\OrdenServicioAgregar\frm_OrdenServicioBuscarArticulo.resx">
+      <DependentUpon>frm_OrdenServicioBuscarArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdenServicio\OrdenServicioAgregar\frm_OrdenServicioImprimir.resx">
+      <DependentUpon>frm_OrdenServicioImprimir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdenServicio\OrdenServicioBuscar\frm_OrdenServicioBuscar00.resx">
+      <DependentUpon>frm_OrdenServicioBuscar00.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdenServicio\OrdenServicioBuscar\frm_OrdenServicioBuscar01.resx">
+      <DependentUpon>frm_OrdenServicioBuscar01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdenServicio\OrdenServicioBuscar\frm_OrdenServicioBuscar02.resx">
+      <DependentUpon>frm_OrdenServicioBuscar02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdenServicio\OrdenServicioBuscar\frm_OrdenServicioBuscar03.resx">
+      <DependentUpon>frm_OrdenServicioBuscar03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdenServicio\OrdenServicioBuscar\frm_OrdenServicioBuscar04.resx">
+      <DependentUpon>frm_OrdenServicioBuscar04.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdenServicio\OrdenServicioMenu\frm_ordenServicioMenu.resx">
+      <DependentUpon>frm_ordenServicioMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presupuesto\frm_Presupuesto_Agregar.resx">
+      <DependentUpon>frm_Presupuesto_Agregar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,7 +251,30 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="glacial_almacenDataSet.xsc">
+      <DependentUpon>glacial_almacenDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="glacial_almacenDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>glacial_almacenDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="glacial_almacenDataSet.xss">
+      <DependentUpon>glacial_almacenDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="glacial_servicioDataSet.xsc">
+      <DependentUpon>glacial_servicioDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="glacial_servicioDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>glacial_servicioDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="glacial_servicioDataSet.xss">
+      <DependentUpon>glacial_servicioDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -74,7 +286,78 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Proyecto Glacial - Servicio_ClaveTemporal.pfx" />
+    <None Include="Resources\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gas-station.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked-mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carroFallas01.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carroFallas02.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carroFallas03.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregarArchivoBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteRegister.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscarBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchButton1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchButtonBigger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_blacl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trashCan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo_AC %281%29.ico" />
+    <Content Include="Logo_jpg.ico" />
+    <Content Include="Logo_PNG_1_.ico" />
+    <None Include="Resources\wat.png" />
+    <None Include="Resources\Logo PNG %281%29.png" />
+    <None Include="Resources\logo AC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

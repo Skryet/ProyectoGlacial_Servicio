@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Proyecto_Glacial___Servicio
+namespace Proyecto_Glacial___Servicio.OrdenServicio.OrdenServicioAgregar
 {
-    public partial class Form1 : Form
+    public partial class frm_OrdenServicioImprimir : Form
     {
-        public Form1()
+        public frm_OrdenServicioImprimir()
         {
             InitializeComponent();
         }
